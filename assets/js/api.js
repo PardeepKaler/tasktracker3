@@ -47,6 +47,10 @@ class TheServer {
           type: 'ADD_USER',
           user: resp.data,
         });
+        alert("User created Successfully");
+        store.dispatch({
+          type: 'CLEAR_FORM',
+        });
         },
         error: (resp) => {
           console.log(resp);

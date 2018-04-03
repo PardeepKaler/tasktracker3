@@ -15,6 +15,7 @@ defmodule Tasktracker3Web.TaskView do
    else "NOT ASSIGNED" end
     assigned_id = if(Tasktracker3.Users.get_user(task.assigned)) do Tasktracker3.Users.get_user(task.assigned).id
   else "" end
+  user_email= Tasktracker3.Users.get_user(task.user_id).email
     %{id: task.id,
       title: task.title,
       description: task.description,
@@ -23,6 +24,7 @@ defmodule Tasktracker3Web.TaskView do
       user_id: task.user_id,
       assigned: assigned,
       assigned_id: assigned_id,
+      user_email: user_email,
      }
   end
 end

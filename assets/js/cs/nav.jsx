@@ -20,13 +20,6 @@ let LoginForm = connect(({login}) => {return {login};})((props) => {
     console.log(props.login);
   }
 
-  function logout(ev){
-    props.dispatch({
-      type: 'SET_TOKEN',
-      token: null,
-    });
-  }
-
   return <div className="navbar-text">
     <Form inline>
       <FormGroup>
@@ -42,6 +35,13 @@ let LoginForm = connect(({login}) => {return {login};})((props) => {
 });
 
 let Session = connect(({token}) => {return {token};})((props) => {
+
+  function logout(ev){
+    props.dispatch({
+      type: 'SET_TOKEN',
+      token: null,
+    });
+  }
   return <div className="navbar-text "><p className="inline-log">
     Logged in as  { props.token.name } </p>
         <NavLink to="/" onClick={(e)=> { logout(e,props);}} href="#" className="nav-link inline-log">Logout</NavLink>

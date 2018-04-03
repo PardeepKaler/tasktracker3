@@ -6,6 +6,7 @@ import {browserHistory} from 'react-router';
 import Nav from './nav';
 import Users from './users';
 import Tasks from './tasks';
+import Task from './task';
 import Register from './register-form';
 import NewTask from './newTask';
 import LoginForm from './login-form';
@@ -56,6 +57,10 @@ let Tasktracker = connect((state) => state)((props) => {
            (
              <Redirect to="/"/>
            )
+        } />
+        <Route path="/tasks/:id" exact={true} render={({match}) =>
+            <Task task={_.filter(props.tasks, (pp) =>
+              match.params.id == pp.id)} />
         } />
         <Route path="/register" exact={true} render={() =>
           <div>

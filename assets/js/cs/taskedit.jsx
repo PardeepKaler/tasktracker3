@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, FormGroup, Label, Input } from 'reactstrap';
 import api from '../api';
+import { Link } from 'react-router-dom';
 
 
 
@@ -49,7 +50,7 @@ function EditTask(props) {
     };
     api.update_task(action);
     console.log(action);
-    
+
   }
 
  let users = _.map(props.users, (uu) => <option key={uu.id} value={uu.id}>{uu.email}</option>);
@@ -85,6 +86,7 @@ function EditTask(props) {
              value={props.editTask.completed} onChange={handleCheck} />
     </FormGroup>
     <Button onClick={submit} color="primary">Submit</Button> &nbsp;
+    <div><Link href="#"  to= "/" className="btn btn-default btn-xs">BACK</Link></div>
 
   </div>;
 }
