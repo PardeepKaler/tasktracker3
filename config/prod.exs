@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :tasktracker3, Tasktracker3Web.Endpoint,
   load_from_system_env: true,
-  url: [host: "example.com", port: 80],
+  url: [host: "tasks3.deepwebdev.site", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
@@ -56,7 +56,7 @@ config :logger, level: :info
 # Alternatively, you can configure exactly which server to
 # start per endpoint:
 #
-#     config :tasktracker3, Tasktracker3Web.Endpoint, server: true
+   config :tasktracker3, Tasktracker3Web.Endpoint, server: true
 #
 
 # Finally import the config/prod.secret.exs
