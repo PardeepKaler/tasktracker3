@@ -13,7 +13,7 @@ Assumptions:
 8) By clicking newTask link, user can enter form fields and create new task. Error messages are shown if some field is missing. If user navigate to other link from the newTask page , then the newTask form fields are cleared. If task is created then alert is generated stating that a task has been created and all the form fields are cleared.
 9) On Tasks page, user can click on show page to view task details.
 10) User can delete specific task by clicking on delete button.
-11) User can click on edit button to edit specific task. In the editForm page, user can make necessary changes and submit it. If task is edited then alert is generated and user is taken back to tasks page automatically. Otherwise an error message is shown. User can click on Back button to go back to tasks page.
+11) User can click on edit button to edit specific task. In the editForm page, user can make necessary changes and submit it. If task is edited then user is taken back to tasks page automatically. Otherwise an error message is shown. User can click on Back button to go back to tasks page.
 12) In AllUsers link, user can see the name and email of other users.
 13) User can logout by clicking on logout link.
 

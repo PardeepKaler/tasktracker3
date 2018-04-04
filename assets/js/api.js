@@ -51,9 +51,11 @@ class TheServer {
         });
         },
         error: (resp) => {
+          let err=resp.responseJSON.errors;
+          if(data["password"]=="") err["password"]= "can't be blank"
           store.dispatch({
             type: 'UPDATE_REGISTER_ERROR',
-            data: resp.responseJSON.errors,
+            data: err,
           });
         }
       });
