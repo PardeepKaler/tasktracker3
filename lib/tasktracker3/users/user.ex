@@ -27,18 +27,6 @@ defmodule Tasktracker3.Users.User do
     |> unique_constraint(:email)
   end
 
-  def validate_email(email) when is_binary(email) do
-      case Regex.run(~r/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/, email) do
-        nil ->
-          {:error, "Invalid email"}
-        [email] ->
-          try do
-            Regex.run(~r/(\w+)@([\w.]+)/, email) |> validate_email
-          rescue
-            _ -> {:error, "Invalid email"}
-          end
-      end
-    end
   # From Comeonin docs
    def validate_password(changeset, field, options \\ []) do
      validate_change(changeset, field, fn _, password ->
