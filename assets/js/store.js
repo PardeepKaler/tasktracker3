@@ -85,7 +85,7 @@ function newTask(state = empty_task, action) {
     case 'UPDATE_TASK_FORM':
       return Object.assign({}, state, action.data);
       case 'CLEAR_TASK_FORM':
-      return empty_task;
+      return Object.assign({}, empty_task, {assigned: state.assigned});
     default:
       return state;
   }
@@ -176,10 +176,8 @@ function login_error(state = empty_register_error, action){
 }
 
 function root_reducer(state0, action) {
-  console.log("reducer", action);
   let reducer = combineReducers({token, login, register,tasks,users,register_error,login_error,newTask,task_error,editTask,edit_Task});
   let state1 = reducer(state0, action);
-  console.log("state1", state1);
   return deepFreeze(state1);
 };
 

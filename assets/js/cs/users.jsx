@@ -9,7 +9,7 @@ import {  Redirect } from 'react-router'
 function User(params) {
 let user = params.user;
 let props= params.props;
-  
+
 
   return <tr>
       <td>{user.name}</td>
@@ -17,7 +17,6 @@ let props= params.props;
       </tr>
 }
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
   return {
     editTask: state.editTask,
   };

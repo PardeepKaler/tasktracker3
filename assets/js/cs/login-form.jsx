@@ -5,7 +5,6 @@ import api from '../api';
 
 
 function LoginForm(props) {
-  //console.log("props@PostForm", props);
 
   function update(ev) {
     let tgt = $(ev.target);
@@ -16,13 +15,11 @@ function LoginForm(props) {
       type: 'UPDATE_LOGIN_FORM',
       data: data,
     };
-    console.log(action);
     props.dispatch(action);
   }
 
   function submit(ev) {
     api.submit_login(props.login);
-    console.log(props.login);
   }
 
 
@@ -45,7 +42,6 @@ function LoginForm(props) {
 }
 
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
   return {
     login: state.login,
     login_error: state.login_error,

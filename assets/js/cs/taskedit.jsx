@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 
 
 function EditTask(props) {
-  //console.log("props@PostForm", props);
-
 
   function handleCheck(ev){
     var newComp;
@@ -20,7 +18,6 @@ function EditTask(props) {
       data: data,
     };
 
-    console.log(action);
     props.dispatch(action);
   }
 
@@ -33,8 +30,6 @@ function EditTask(props) {
       type: 'UPDATE_EDIT_TASK_FORM',
       data: data,
     };
-
-    console.log(action);
     props.dispatch(action);
   }
 
@@ -49,7 +44,6 @@ function EditTask(props) {
       assigned: props.editTask.assigned,
     };
     api.update_task(action);
-    console.log(action);
 
   }
 
@@ -92,7 +86,7 @@ function EditTask(props) {
 }
 
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
+
   return {
     editTask: state.editTask,
     token: state.token,

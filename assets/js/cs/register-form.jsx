@@ -6,7 +6,6 @@ import api from '../api';
 
 
 function Register(props) {
-  //console.log("props@PostForm", props);
 
   function update(ev) {
     let tgt = $(ev.target);
@@ -17,13 +16,11 @@ function Register(props) {
       type: 'UPDATE_REGISTER_FORM',
       data: data,
     };
-    console.log(action);
     props.dispatch(action);
   }
 
   function submit(ev) {
     api.submit_register(props.register);
-    console.log(props.register);
   }
 
   function clear(ev) {
@@ -54,8 +51,7 @@ function Register(props) {
       <Label for= "password">Password</Label>
       <Input type="password" name="password" className="form-control"
              value={props.register.password} onChange={update} />
-             <span className="error">{props.register_error.password_hash}</span>
-            <span className="error">{"."+props.register_error.password}</span>
+            <span className="error">{props.register_error.password}</span>
     </FormGroup>
     <FormGroup>
       <Label for="password_confirmation">Password Confirmation</Label>
@@ -69,7 +65,6 @@ function Register(props) {
 }
 
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
   return {
     register: state.register,
     register_error: state.register_error,

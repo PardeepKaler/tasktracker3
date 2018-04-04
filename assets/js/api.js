@@ -35,14 +35,12 @@ class TheServer {
     store.dispatch({
       type: 'CLEAR_REGISTER_ERROR',
     });
-    console.log(data);
       $.ajax("/api/v1/users", {
         method: "post",
         dataType: "json",
         contentType: "application/json; charset=UTF-8",
         data: JSON.stringify({ user: data }),
         success: (resp) => {
-        console.log(resp);
         store.dispatch({
           type: 'ADD_USER',
           user: resp.data,
@@ -53,7 +51,6 @@ class TheServer {
         });
         },
         error: (resp) => {
-          console.log(resp);
           store.dispatch({
             type: 'UPDATE_REGISTER_ERROR',
             data: resp.responseJSON.errors,
@@ -66,7 +63,7 @@ class TheServer {
       store.dispatch({
         type: 'CLEAR_TASK_ERROR',
       });
-      console.log(data);
+
         $.ajax("/api/v1/tasks", {
           method: "post",
           dataType: "json",
@@ -83,7 +80,6 @@ class TheServer {
             });
           },
           error: (resp) => {
-            console.log(resp);
             store.dispatch({
               type: 'UPDATE_TASK_ERROR',
               data: resp.responseJSON.errors,
@@ -96,7 +92,7 @@ class TheServer {
         store.dispatch({
           type: 'CLEAR_TASK_ERROR',
         });
-        console.log(data);
+
           $.ajax("/api/v1/tasks/"+data.id, {
             method: "put",
             dataType: "json",
@@ -106,7 +102,6 @@ class TheServer {
               timeSpent: data.timeSpent, completed: data.completed,
             } }),
             success: (resp) => {
-            console.log(resp);
             store.dispatch({
               type: 'DELETE_TASK',
               id: data.id,
@@ -115,7 +110,6 @@ class TheServer {
               type: 'ADD_TASK',
               task: resp.data,
             });
-         alert("Task Has been updated");
          let action1 = {
            type: 'SET_EDIT',
            data: null,
@@ -123,7 +117,6 @@ class TheServer {
          store.dispatch(action1);
             },
             error: (resp) => {
-              console.log(resp);
               store.dispatch({
                 type: 'UPDATE_TASK_ERROR',
                 data: resp.responseJSON.errors,
@@ -133,22 +126,17 @@ class TheServer {
         }
 
       delete_Task(data) {
-        console.log(data);
           $.ajax("/api/v1/tasks/"+data.id, {
             method: "delete",
             dataType: "json",
             contentType: "application/json; charset=UTF-8",
             data: JSON.stringify({ id: data.id }),
             success: (resp) => {
-              console.log(resp);
               store.dispatch({
                 type: 'DELETE_TASK',
                 id: data.id,
               });
             },
-            error: (resp) => {
-              console.log(resp);
-            }
           });
         }
 
@@ -160,7 +148,6 @@ class TheServer {
       contentType: "application/json; charset=UTF-8",
       data: JSON.stringify(data),
       success: (resp) => {
-        console.log(resp);
         store.dispatch({
           type: 'SET_TOKEN',
           token: resp,

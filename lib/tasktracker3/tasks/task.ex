@@ -34,7 +34,7 @@ defmodule Tasktracker3.Tasks.Task do
   end
 
 
-  def valid_timeSpent?(timeSpent) when rem(timeSpent,15)==0 do
+  def valid_timeSpent?(timeSpent) when rem(timeSpent,15)==0 and timeSpent>=0 do
     {:ok, timeSpent}
   end
   def valid_timeSpent?(_), do: {:error, "TimeSpent should be multiple of 15"}

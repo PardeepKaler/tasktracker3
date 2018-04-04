@@ -17,7 +17,6 @@ let LoginForm = connect(({login}) => {return {login};})((props) => {
 
   function create_token(ev) {
     api.submit_login(props.login);
-    console.log(props.login);
   }
 
   return <div className="navbar-text">
@@ -73,6 +72,15 @@ function Nav(props) {
     session_info = <Register_login />
   }
 
+  function clearData(){
+    props.dispatch({
+      type: 'CLEAR_TASK_ERROR',
+    });
+    props.dispatch({
+      type: 'CLEAR_TASK_FORM',
+    });
+  }
+
   return (
     <nav className="navbar navbar-dark bg-dark navbar-expand">
       <span className="navbar-brand">
@@ -86,7 +94,7 @@ function Nav(props) {
           <NavLink to="/users" href="#" className="nav-link">All Users</NavLink>
         </NavItem>
         <NavItem>
-          <NavLink to="/newtask" href="#" className="nav-link">New Task</NavLink>
+          <NavLink to="/newtask" href="#" onClick= {clearData} className="nav-link">New Task</NavLink>
         </NavItem>
       </ul>
       { session_info }

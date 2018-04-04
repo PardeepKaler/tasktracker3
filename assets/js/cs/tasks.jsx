@@ -10,15 +10,11 @@ function Task(params) {
 let task = params.task;
 let props= params.props;
   function deleteTask(ev) {
-      console.log(task);
     api.delete_Task(task);
-    console.log("redirecting");
-
   }
 
   function editTask(e,props) {
 
-      console.log("editTask Inside"+task);
       let data = {
       user_id: task.user_id,
       completed: task.completed,
@@ -32,17 +28,10 @@ let props= params.props;
         data: data,
       };
 
-      console.log(action);
       props.dispatch(action);
-
-    //   ev.stopPropagation();
-    // ev.nativeEvent.stopImmediatePropagation();
-
-
 
   }
 
-  console.log(task);
   let comp= task.completed? "Completed" : "Not Completed";
 
   return <tr>
@@ -59,7 +48,6 @@ let props= params.props;
       </td></tr>
 }
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
   return {
     editTask: state.editTask,
   };

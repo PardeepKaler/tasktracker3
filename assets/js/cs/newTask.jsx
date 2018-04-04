@@ -6,8 +6,6 @@ import api from '../api';
 
 
 function NewTask(props) {
-  //console.log("props@PostForm", props);
-
 
   function handleCheck(ev){
     var newComp;
@@ -18,8 +16,6 @@ function NewTask(props) {
       type: 'UPDATE_TASK_FORM',
       data: data,
     };
-
-    console.log(action);
     props.dispatch(action);
   }
 
@@ -32,8 +28,6 @@ function NewTask(props) {
       type: 'UPDATE_TASK_FORM',
       data: data,
     };
-
-    console.log(action);
     props.dispatch(action);
   }
 
@@ -47,7 +41,6 @@ function NewTask(props) {
       assigned: props.newTask.assigned,
     };
     api.create_task(action);
-    console.log(action);
   }
 
  let users = _.map(props.users, (uu) => <option key={uu.id} value={uu.id}>{uu.email}</option>);
@@ -88,7 +81,6 @@ function NewTask(props) {
 }
 
 function state2props(state) {
-  //console.log("rerender@PostForm", state);
   return {
     newTask: state.newTask,
     token: state.token,
