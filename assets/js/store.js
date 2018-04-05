@@ -2,27 +2,27 @@ import { createStore, combineReducers } from 'redux';
 import deepFreeze from 'deep-freeze';
 
 /*
- *  state layout:
- *  {
- *   posts: [... Posts ...],
- *   users: [... Users ...],
- *   form: {
- *     user_id: null,
- *     body: "",
- *   }
- * }
- *
- * */
+*  state layout:
+*  {
+*   posts: [... Posts ...],
+*   users: [... Users ...],
+*   form: {
+*     user_id: null,
+*     body: "",
+*   }
+* }
+*
+* */
 
- function tasks(state = [], action) {
+function tasks(state = [], action) {
   switch (action.type) {
-  case 'TASKS_LIST':
+    case 'TASKS_LIST':
     return [...action.posts];
-  case 'ADD_TASK':
+    case 'ADD_TASK':
     return [action.task, ...state];
-  case 'DELETE_TASK' :
-  return state.filter(tt => tt.id!=action.id);
-  default:
+    case 'DELETE_TASK' :
+    return state.filter(tt => tt.id!=action.id);
+    default:
     return state;
   }
 }
@@ -30,11 +30,11 @@ import deepFreeze from 'deep-freeze';
 
 function users(state = [], action) {
   switch (action.type) {
-  case 'USERS_LIST':
+    case 'USERS_LIST':
     return [...action.users];
     case 'ADD_USER':
-      return [action.user, ...state];
-  default:
+    return [action.user, ...state];
+    default:
     return state;
   }
 }
@@ -42,18 +42,18 @@ function users(state = [], action) {
 function token(state = null, action) {
   switch (action.type) {
     case 'SET_TOKEN':
-      return action.token;
+    return action.token;
     default:
-      return state;
+    return state;
   }
 }
 
 function edit_Task(state = null, action) {
   switch (action.type) {
     case 'SET_EDIT':
-      return action.data;
+    return action.data;
     default:
-      return state;
+    return state;
   }
 }
 
@@ -65,9 +65,9 @@ let empty_login = {
 function login(state = empty_login, action) {
   switch (action.type) {
     case 'UPDATE_LOGIN_FORM':
-      return Object.assign({}, state, action.data);
+    return Object.assign({}, state, action.data);
     default:
-      return state;
+    return state;
   }
 }
 
@@ -83,11 +83,11 @@ let empty_task = {
 function newTask(state = empty_task, action) {
   switch (action.type) {
     case 'UPDATE_TASK_FORM':
-      return Object.assign({}, state, action.data);
-      case 'CLEAR_TASK_FORM':
-      return Object.assign({}, empty_task, {assigned: state.assigned});
+    return Object.assign({}, state, action.data);
+    case 'CLEAR_TASK_FORM':
+    return Object.assign({}, empty_task, {assigned: state.assigned});
     default:
-      return state;
+    return state;
   }
 }
 
@@ -103,9 +103,9 @@ let empty_edit_task = {
 function editTask(state = empty_task, action) {
   switch (action.type) {
     case 'UPDATE_EDIT_TASK_FORM':
-      return Object.assign({}, state, action.data);
+    return Object.assign({}, state, action.data);
     default:
-      return state;
+    return state;
   }
 }
 
@@ -119,11 +119,11 @@ let empty_register = {
 function register(state = empty_register, action) {
   switch (action.type) {
     case 'UPDATE_REGISTER_FORM':
-      return Object.assign({}, state, action.data);
-      case 'CLEAR_FORM':
-      return empty_register;
+    return Object.assign({}, state, action.data);
+    case 'CLEAR_FORM':
+    return empty_register;
     default:
-      return state;
+    return state;
   }
 }
 
@@ -147,31 +147,31 @@ let empty_task_error ={
 function task_error(state = empty_task_error, action){
   switch (action.type) {
     case 'UPDATE_TASK_ERROR':
-      return Object.assign({}, state, action.data);
-      case 'CLEAR_TASK_ERROR':
-      return empty_task_error;
+    return Object.assign({}, state, action.data);
+    case 'CLEAR_TASK_ERROR':
+    return empty_task_error;
     default:
-      return state;
+    return state;
   }
 }
 
 function register_error(state = empty_register_error, action){
   switch (action.type) {
     case 'UPDATE_REGISTER_ERROR':
-      return Object.assign({}, action.data);
-      case 'CLEAR_REGISTER_ERROR':
-      return empty_register_error;
+    return Object.assign({}, action.data);
+    case 'CLEAR_REGISTER_ERROR':
+    return empty_register_error;
     default:
-      return state;
+    return state;
   }
 }
 
 function login_error(state = empty_register_error, action){
   switch (action.type) {
     case 'UPDATE_LOGIN_ERROR':
-      return Object.assign({}, state, action.data);
+    return Object.assign({}, state, action.data);
     default:
-      return state;
+    return state;
   }
 }
 

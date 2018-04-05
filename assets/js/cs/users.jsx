@@ -7,14 +7,14 @@ import { connect } from 'react-redux';
 import {  Redirect } from 'react-router'
 
 function User(params) {
-let user = params.user;
-let props= params.props;
+  let user = params.user;
+  let props= params.props;
 
 
   return <tr>
-      <td>{user.name}</td>
-      <td>{user.email}</td>
-      </tr>
+  <td>{user.name}</td>
+  <td>{user.email}</td>
+  </tr>
 }
 function state2props(state) {
   return {
@@ -26,20 +26,20 @@ export default connect(state2props)(Users);
 
 
 
- function Users(params) {
+function Users(params) {
   let users = _.map(params.users, (pp) => <User key={pp.id} user={pp} props={params} />);
   return <div>
   <table className="table">
   <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th></th>
-    </tr>
+  <tr>
+  <th>Name</th>
+  <th>Email</th>
+  <th></th>
+  </tr>
   </thead>
-               <tbody>
-                 {users}
-               </tbody>
-             </table>
+  <tbody>
+  {users}
+  </tbody>
+  </table>
   </div>;
 }

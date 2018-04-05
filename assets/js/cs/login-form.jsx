@@ -24,19 +24,19 @@ function LoginForm(props) {
 
 
   return <div style={{padding: "4ex"}}>
-    <h2>LOGIN : </h2>
-<span className="error">{props.login_error.name}</span>
-    <FormGroup>
-      <Label for="name">Email</Label>
-      <Input type="email" name="name" placeholder="user@example.com"
-             value={props.login.name} onChange={update} />
-    </FormGroup>
-    <FormGroup>
-      <Label for="pass">Password</Label>
-      <Input type="password" name="pass"
-             value={props.login.pass} onChange={update} />
-    </FormGroup>
-    <Button onClick={submit} color="primary">Login</Button> &nbsp;
+  <h2>LOGIN : </h2>
+  <span className="error">{props.login_error.name}</span>
+  <FormGroup>
+  <Label for="name">Email</Label>
+  <Input type="email" name="name" placeholder="user@example.com"
+  value={props.login.name} onChange={update} />
+  </FormGroup>
+  <FormGroup>
+  <Label for="pass">Password</Label>
+  <Input type="password" name="pass"
+  value={props.login.pass} onChange={update} />
+  </FormGroup>
+  <Button onClick={submit} color="primary">Login</Button> &nbsp;
 
   </div>;
 }

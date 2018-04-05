@@ -7,15 +7,15 @@ import { connect } from 'react-redux';
 import {  Redirect } from 'react-router'
 
 function Task(params) {
-let task = params.task;
-let props= params.props;
+  let task = params.task;
+  let props= params.props;
   function deleteTask(ev) {
     api.delete_Task(task);
   }
 
   function editTask(e,props) {
 
-      let data = {
+    let data = {
       user_id: task.user_id,
       completed: task.completed,
       description: task.description,
@@ -23,29 +23,29 @@ let props= params.props;
       timeSpent: task.timeSpent,
       assigned: task.assigned_id,
     }
-      let action = {
-        type: 'UPDATE_EDIT_TASK_FORM',
-        data: data,
-      };
+    let action = {
+      type: 'UPDATE_EDIT_TASK_FORM',
+      data: data,
+    };
 
-      props.dispatch(action);
+    props.dispatch(action);
 
   }
 
   let comp= task.completed? "Completed" : "Not Completed";
 
   return <tr>
-      <td>{task.title}</td>
-      <td>{task.description}</td>
-      <td>{task.assigned}</td>
-      <td>{task.timeSpent}</td>
-      <td>{comp}</td>
+  <td>{task.title}</td>
+  <td>{task.description}</td>
+  <td>{task.assigned}</td>
+  <td>{task.timeSpent}</td>
+  <td>{comp}</td>
 
-      <td className="text-right w3">
-      <div>  <span className="inline-log"><Link href="#"  to={"/tasks/"+ task.id} className="btn btn-default btn-xs">SHOW</Link></span>
-        <span className="inline-log"><NavLink href="#" onClick={(e)=> { editTask(e,props);}} to={"/tasks/"+ task.id+"/edit"} className="nav-link">EDIT</NavLink></span>
-        <span className="inline-log"><Button to="/users" onClick={deleteTask} className= "btn btn-danger btn-xs">DELETE</Button></span> </div>
-      </td></tr>
+  <td className="text-right w3">
+  <div>  <span className="inline-log"><Link href="#"  to={"/tasks/"+ task.id} className="btn btn-default btn-xs">SHOW</Link></span>
+  <span className="inline-log"><NavLink href="#" onClick={(e)=> { editTask(e,props);}} to={"/tasks/"+ task.id+"/edit"} className="nav-link">EDIT</NavLink></span>
+  <span className="inline-log"><Button to="/users" onClick={deleteTask} className= "btn btn-danger btn-xs">DELETE</Button></span> </div>
+  </td></tr>
 }
 function state2props(state) {
   return {
@@ -57,7 +57,7 @@ export default connect(state2props)(Tasks);
 
 
 
- function Tasks(params) {
+function Tasks(params) {
   let tasks = _.map(params.tasks, (pp) => <Task key={pp.id} task={pp} props={params} />);
   let action1 = {
     type: 'SET_EDIT',
@@ -67,19 +67,19 @@ export default connect(state2props)(Tasks);
   return <div>
   <table className="table">
   <thead>
-    <tr>
-      <th className="w1">Title</th>
-      <th className="w2">Description</th>
-      <th className="w1">Assigned</th>
-      <th className="w1">Timespent(In Minutes)</th>
-      <th className="w1">Completed</th>
+  <tr>
+  <th className="w1">Title</th>
+  <th className="w2">Description</th>
+  <th className="w1">Assigned</th>
+  <th className="w1">Timespent(In Minutes)</th>
+  <th className="w1">Completed</th>
 
-      <th></th>
-    </tr>
+  <th></th>
+  </tr>
   </thead>
-               <tbody>
-                 {tasks}
-               </tbody>
-             </table>
+  <tbody>
+  {tasks}
+  </tbody>
+  </table>
   </div>;
 }
