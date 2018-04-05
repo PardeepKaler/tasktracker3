@@ -9,7 +9,7 @@ Assumptions:
 4) There is clear button in register_form clicking on which user can clear the form.
 5) On successful registering, a alert is generated stating user has registered successful and all the fields are automatically cleared.
 6) User can then log in into app.Error message is shown if he enters invalid username/password.
-7) On login, user can view tasks and can create new task.
+7) On login, user can view tasks and can create new task. Once user is logged in, he no longer see register and login link, instead he see a logout link which will log him out of current session.
 8) By clicking newTask link, user can enter form fields and create new task. Error messages are shown if some field is missing. If user navigate to other link from the newTask page , then the newTask form fields are cleared. If task is created then alert is generated stating that a task has been created and all the form fields are cleared. Default timeSpent is 0 in new task form, and default assigned to is the user itself.
 9) On Tasks page, user can click on show page to view task details.
 10) User can delete specific task by clicking on delete button.
